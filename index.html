@@ -15,8 +15,19 @@
             <div class="sideBar">
 
                 <div class="leftBox">
-                    <div class="logo">
-                        <img src="./images/TalentLogo.png" alt="logo">
+                    <div class="logos">
+                        <div class="logo">
+                            <img src="./images/TalentLogo.png" alt="logo">
+                        </div>
+                        <button id="toggleSidebar" class="toggleBtn">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <line x1="3" y1="12" x2="21" y2="12"></line>
+                                <line x1="3" y1="6" x2="21" y2="6"></line>
+                                <line x1="3" y1="18" x2="21" y2="18"></line>
+                            </svg>
+                        </button>
+
                     </div>
 
                     <p>My Account</p>
@@ -24,19 +35,20 @@
 
                     <ul>
                         <li class="active">
-                            <img src="./images/Icons (3).png" alt=""> Account Settings
+                            <img src="./images/Icons (3).png" alt=""> <span>Account Settings</span>
                         </li>
                         <li>
-                            <img src="./images/Icons (1).png" alt=""> Subscription
+                            <img src="./images/Icons (1).png" alt=""> <span>Subscription</span>
                         </li>
                         <li>
-                            <img src="./images/Icons (2).png" alt=""> Billing & Invoices
+                            <img src="./images/Icons (2).png" alt=""> <span>Billing & Invoices</span>
+                        </li>
+                        <hr>
+                        <li>
+                            <img src="./images/Icons (3).png" alt=""> <span>Support & Help</span>
                         </li>
                         <li>
-                            <img src="./images/Icons (3).png" alt=""> Support & Help
-                        </li>
-                        <li>
-                            <img src="./images/Icons (4).png" alt=""> Logout
+                            <img src="./images/Icons (4).png" alt=""> <span>Logout</span>
                         </li>
                     </ul>
                 </div>
@@ -56,11 +68,78 @@
                         <p>You’re on the Pro plan. Renewing on September 30, 2026.</p>
                     </div>
 
-                    <div class="userDetails"></div>
+                    <div class="detailsSection">
+                        <h3>User Details</h3>
+                        <div class="detailsCard">
+                            <div class="row">
+                                <div class="label">Full Name</div>
+                                <div class="value">Fatima Kumar</div>
+                                <div class="action">Edit</div>
+                            </div>
+                            <div class="row">
+                                <div class="label">Email ID</div>
+                                <div class="value">fatima.kumar@gmail.com</div>
+                                <div class="action">Edit</div>
+                            </div>
+                            <div class="row">
+                                <div class="label">Phone Number</div>
+                                <div class="value">+971 566 404 776</div>
+                                <div class="action">Edit</div>
+                            </div>
+                            <div class="row">
+                                <div class="label">Password</div>
+                                <div class="value">***************</div>
+                                <div class="action">Edit</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="detailsSection">
+                        <h3>Account Details</h3>
+                        <div class="detailsCard">
+                            <div class="row">
+                                <div class="label">Company name</div>
+                                <div class="value">Talent Lens Inc.</div>
+                                <div class="action">Edit</div>
+                            </div>
+                            <div class="row">
+                                <div class="label">Billing Address</div>
+                                <div class="value">123 Business Park Avenue<br>Suite 456<br>Dubai, United Arab
+                                    Emirates<br>Postal Code: 12345</div>
+                                <div class="action">Edit</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="detailsSection">
+                        <h3>Manage Account</h3>
+                        <div class="detailsCard">
+                            <div class="row">
+                                <div class="label delete-label">
+                                    <div class="title">Delete account</div>
+                                    <div class="subtext">Permanently delete your TalentLens account.</div>
+                                </div>
+                                <div class="action delete">Delete</div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
+
+    <script>
+        const toggleBtn = document.getElementById('toggleSidebar');
+        const mainContent = document.querySelector('.mainContent');
+
+        if (window.innerWidth <= 768) {
+            mainContent.classList.add('collapsed');
+        }
+
+        toggleBtn.addEventListener('click', () => {
+            mainContent.classList.toggle('collapsed');
+        });
+    </script>
 </body>
 
 </html>

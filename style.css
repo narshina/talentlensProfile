@@ -16,32 +16,90 @@
   width: 100%;
   display: grid;
   grid-template-columns: 20% 80%;
+  height: calc(100vh - 40px);
+}
+.profilePage .mainContent.collapsed {
+  grid-template-columns: 80px calc(100% - 80px);
+}
+.profilePage .mainContent.collapsed .sideBar {
+  padding-top: 24px;
+}
+.profilePage .mainContent.collapsed .sideBar .leftBox {
+  padding-left: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.profilePage .mainContent.collapsed .sideBar .leftBox .toggleBtn {
+  margin-bottom: 32px;
+}
+.profilePage .mainContent.collapsed .sideBar .leftBox .logos .logo {
+  display: none;
+}
+.profilePage .mainContent.collapsed .sideBar .leftBox .logos button {
+  padding-right: 0;
+}
+.profilePage .mainContent.collapsed .sideBar .leftBox p {
+  display: none;
+}
+.profilePage .mainContent.collapsed .sideBar .leftBox ul {
+  width: 100%;
+}
+.profilePage .mainContent.collapsed .sideBar .leftBox ul li {
+  justify-content: center;
+  padding: 16px 0;
+  border-radius: 0;
+}
+.profilePage .mainContent.collapsed .sideBar .leftBox ul li span {
+  display: none;
 }
 .profilePage .mainContent .sideBar {
   padding-top: 56px;
   background-color: #F7F7F7;
-  height: 100vh;
+  height: 100%;
+  overflow-y: auto;
 }
 .profilePage .mainContent .sideBar .leftBox {
-  max-width: 300px;
   width: 100%;
-  margin: auto;
+  padding-left: 40px;
 }
-.profilePage .mainContent .sideBar .leftBox .logo img {
+.profilePage .mainContent .sideBar .leftBox .toggleBtn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  margin-bottom: 24px;
+  color: #404040;
+  display: flex;
+}
+.profilePage .mainContent .sideBar .leftBox .logos {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 48px;
+}
+.profilePage .mainContent .sideBar .leftBox .logos .logo img {
   width: 167px;
   height: 48px;
-  -o-object-fit: cover;
-     object-fit: cover;
+  object-fit: cover;
+}
+.profilePage .mainContent .sideBar .leftBox .logos button {
+  padding-right: 10px;
 }
 .profilePage .mainContent .sideBar .leftBox p {
   font-size: 14px;
   font-weight: 500;
   color: #080808;
-  margin-top: 48px;
+  margin-bottom: 16px;
+  opacity: 0.5;
+}
+.profilePage .mainContent .sideBar .leftBox hr {
+  border: 0.8px solid #46484D;
+  opacity: 0.1;
+  margin: 5px 0;
 }
 .profilePage .mainContent .sideBar .leftBox ul {
   list-style-type: none;
-  padding-top: 16px;
+  padding-top: 0;
 }
 .profilePage .mainContent .sideBar .leftBox ul li {
   display: flex;
@@ -49,6 +107,7 @@
   gap: 12px;
   font-size: 14px;
   font-weight: 400;
+  color: #404040;
   padding: 16px 24px;
   border-top-left-radius: 8px;
   border-bottom-left-radius: 8px;
@@ -56,14 +115,23 @@
 .profilePage .mainContent .sideBar .leftBox ul li img {
   width: 20px;
   height: 20px;
-  -o-object-fit: cover;
-     object-fit: cover;
+  object-fit: cover;
 }
 .profilePage .mainContent .sideBar .leftBox ul li.active {
   background-color: #E6E6E6;
+  color: #1a1a1a;
 }
 .profilePage .mainContent .profileContent {
   padding-top: 56px;
+  height: 100%;
+  overflow-y: auto;
+  padding-bottom: 75px;
+}
+.profilePage .mainContent .profileContent .rightBox {
+  max-width: 1060px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 20px;
 }
 .profilePage .mainContent .profileContent .rightBox .profileHeader {
   display: flex;
@@ -73,8 +141,7 @@
 .profilePage .mainContent .profileContent .rightBox .profileHeader img {
   width: 112px;
   height: 112px;
-  -o-object-fit: cover;
-     object-fit: cover;
+  object-fit: cover;
 }
 .profilePage .mainContent .profileContent .rightBox .profileHeader .profileInfo h2 {
   font-size: 36px;
@@ -88,8 +155,16 @@
   line-height: 1.2;
   margin-top: 8px;
 }
+@media (max-width: 425px) {
+  .profilePage .mainContent .profileContent .rightBox .profileHeader {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
 .profilePage .mainContent .profileContent .rightBox .pro {
   padding: 12px 16px;
+  margin-top: 16px;
+  border-radius: 8px;
   background-color: #F7F7F7;
   display: flex;
   width: 100%;
@@ -99,11 +174,109 @@
   background-color: #080808;
   color: #FFFFFF;
   border-radius: 40px;
+  border: none;
   padding: 4px 12px;
+  font-family: inherit;
+  font-size: 12px;
+  font-weight: 500;
 }
 .profilePage .mainContent .profileContent .rightBox .pro p {
   font-size: 14px;
   font-weight: 400;
   color: #404040;
   margin-left: 12px;
-}/*# sourceMappingURL=style.css.map */
+  line-height: 1.2;
+}
+.profilePage .mainContent .profileContent .rightBox .detailsSection {
+  margin-top: 32px;
+}
+.profilePage .mainContent .profileContent .rightBox .detailsSection h3 {
+  font-size: 16px;
+  font-weight: 500;
+  color: #080808;
+  margin-bottom: 12px;
+}
+.profilePage .mainContent .profileContent .rightBox .detailsSection .detailsCard {
+  border: 1px solid #E6E6E6;
+  border-radius: 7px;
+  background-color: #FFFFFF;
+}
+.profilePage .mainContent .profileContent .rightBox .detailsSection .detailsCard .row {
+  display: flex;
+  align-items: flex-start;
+  margin: 0 24px;
+  padding: 18px 0;
+  border-bottom: 1px solid #E6E6E6;
+}
+.profilePage .mainContent .profileContent .rightBox .detailsSection .detailsCard .row:last-child {
+  border-bottom: none;
+}
+@media (max-width: 425px) {
+  .profilePage .mainContent .profileContent .rightBox .detailsSection .detailsCard .row {
+    flex-direction: column;
+  }
+}
+.profilePage .mainContent .profileContent .rightBox .detailsSection .detailsCard .row .label {
+  flex: 0 0 30%;
+  font-size: 14px;
+  font-weight: 500;
+  color: #404040;
+  line-height: 1.2;
+}
+.profilePage .mainContent .profileContent .rightBox .detailsSection .detailsCard .row .value {
+  flex: 1;
+  font-size: 14px;
+  font-weight: 400;
+  color: #404040;
+  line-height: 1.2;
+}
+.profilePage .mainContent .profileContent .rightBox .detailsSection .detailsCard .row .action {
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.2;
+  color: #404040;
+  cursor: pointer;
+}
+.profilePage .mainContent .profileContent .rightBox .detailsSection .detailsCard .row .delete-label {
+  flex: 1;
+}
+.profilePage .mainContent .profileContent .rightBox .detailsSection .detailsCard .row .delete-label .title {
+  font-size: 14px;
+  font-weight: 500;
+  color: #080808;
+  margin-bottom: 4px;
+}
+.profilePage .mainContent .profileContent .rightBox .detailsSection .detailsCard .row .delete-label .subtext {
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 1.2;
+  color: #080808;
+  opacity: 0.5;
+}
+@media (max-width: 768px) {
+  .profilePage .mainContent {
+    grid-template-columns: 80px calc(100% - 80px) !important;
+    position: relative;
+  }
+  .profilePage .mainContent .sideBar {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 999;
+    width: 280px;
+    box-shadow: 4px 0 10px rgba(0, 0, 0, 0.1);
+    transition: width 0.3s ease;
+    overflow-x: hidden;
+  }
+  .profilePage .mainContent.collapsed .sideBar {
+    width: 80px;
+    box-shadow: none;
+  }
+  .profilePage .mainContent .profileContent {
+    grid-column: 2;
+    position: relative;
+    z-index: 1;
+  }
+}
+
+/*# sourceMappingURL=style.css.map */
